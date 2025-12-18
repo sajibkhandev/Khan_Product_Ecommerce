@@ -1,10 +1,29 @@
 import React from 'react'
+import {
+  createRoutesFromElements,
+  createBrowserRouter,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import About from './components/About';
+import Home from './components/Home';
+import Contact from './components/Contact';
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+   <>
+    <Route path="/" element={<Home />} ></Route>
+    <Route path="/about" element={<About />} ></Route>
+    <Route path="/contact" element={<Contact />} ></Route>
+   </>
+  )
+);
 
 const App = () => {
   return (
-    <div>
-      <h1 className='bg-red-500 p-p77 text-[33px]'>Ecommerce KhanProduct</h1>
-    </div>
+   <>
+   <RouterProvider router={router} />
+   </>
   )
 }
 
