@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @theme {
+  --container-container:1170px;
   --spacing-p77: 77px; 
   --text-33: 33px;
+  --font-pop: "Poppins", sans-serif; 
+  --color-primary:#FAFAFA;
 }
