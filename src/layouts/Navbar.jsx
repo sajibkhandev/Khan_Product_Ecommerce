@@ -7,6 +7,7 @@ import ListItem from '../components/ListItem'
 import { IoSearchOutline } from "react-icons/io5";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
+import { Link } from 'react-router-dom'
 
 
 
@@ -21,10 +22,13 @@ const Navbar = () => {
                 </div>
                 <div className='w-5/12 '>
                 <ul className='flex gap-x-12 cursor-pointer'>
-                    <ListItem text="Home"/>
-                    <ListItem text="Contact"/>
-                    <ListItem text="About"/>
-                    <ListItem text="Sign Up"/>
+                  <Link to='/home'><ListItem text="Home"/></Link>
+                  <Link to='/products'> <ListItem text="Products"/></Link>
+                  <Link to='/login'><ListItem text="LogIn"/></Link>
+                  <Link to='/signup'><ListItem text="SignUp"/></Link>
+                  <Link to='/about'><ListItem text="About"/></Link>
+                   
+                    
                 </ul>
                 </div>
                 <div className='w-4/12 pl-10'>

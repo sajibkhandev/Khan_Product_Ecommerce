@@ -9,9 +9,7 @@ const RootLayout = () => {
     <div>
         <NewsPart/>
         <Navbar/>
-
         <Outlet/>
-        
         <Footer/>
     </div>
   )
