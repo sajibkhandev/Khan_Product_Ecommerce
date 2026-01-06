@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <nav className='pt-10 pb-4'>
+    <nav className='pt-10 pb-4 border-[#9a9a9a4d] border'>
         <Container>
             <Flex>
                 <div className='w-3/12'>

@@ -1,18 +1,21 @@
 import React from 'react'
-import Card from '../components/Card'
-import Container from '../components/Container'
+import Banner from '../layouts/Banner'
+import Button from '../components/Button'
+import Heading from '../components/Heading'
+import SubHeading from '../components/SubHeading'
+import Today from '../layouts/Today'
+
 
 
 
 const Home = () => {
   return (
-    <section>
-      <Container>
-        <h1 className='text-5xl'>Home page</h1>
-        <Card />
-
-      </Container>
-    </section>
+    <>
+    <Banner/>
+    <Today/>
+    
+    
+    </>
   )
 }
 
