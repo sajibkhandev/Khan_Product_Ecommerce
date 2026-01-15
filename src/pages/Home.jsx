@@ -8,6 +8,7 @@ import Category from '../layouts/Category'
 import BestProduct from '../layouts/BestProduct'
 import Promotion from '../layouts/Promotion'
 import ExploreProduct from '../layouts/ExploreProduct'
+import NewArrival from '../layouts/NewArrival'
 
 
 
@@ -21,6 +22,7 @@ const Home = () => {
     <BestProduct/>
     <Promotion/>
     <ExploreProduct/>
+    <NewArrival/>
     
     
     </>

@@ -8,4 +8,25 @@
   --color-primary:#FAFAFA;
   --color-secondary:#DB4444;
 }
+/* .one{
+  display: grid;
+  gap: 30px;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: repeat(2,284px);
+} */
+
+ /* .two:nth-child(1){
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.two:nth-child(2){
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+ .two:nth-child(1){
+  grid-row-start: 1;
+  grid-row-end: 3;
+}   */
+
 
