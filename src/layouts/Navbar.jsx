@@ -41,7 +41,7 @@ const Navbar = () => {
                 <IoSearchOutline className='absolute top-[9px] right-2 text-base' />
               </div>
               <IoIosHeartEmpty className='text-xl' />
-              <IoCartOutline className='text-xl' />
+              <Link to='/cart'><IoCartOutline className='text-xl' /></Link>
               <div onClick={()=>setDropdown(!dropdown)} className='w-[25px] h-[25px] bg-[#DB4444] rounded-full flex justify-center items-center'>
                 <TbUser className='text-white' />
               </div>
