@@ -4,14 +4,20 @@ import Image from "../components/Image";
 import Flex from "../components/Flex";
 import Product1 from "../assets/product1.png";
 import BannerImage from "../assets/banner.jpg";
+import phones1 from "../assets/phones1.jpg"
+import allproduct from "../assets/allproduct.png"
 import CategoryList from "../components/CategoryList";
 
 import Slider from "react-slick";
+import { ImOpt } from "react-icons/im";
 
 const Banner = () => {
   var settings = {
     arrows:false,
     infinite: true,
+    autoplay: true,
+    speed: 3000,
+    autoplaySpeed: 3000,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -20,7 +26,8 @@ const Banner = () => {
     <section className="pt-10 pb-[140px]">
       <Container>
         <Flex>
-          <div className='w-3/12  relative after:w-[1px] after:h-[380px] after:absolute after:-top-[12%] after:right-[50px] after:bg-[#9a9a9a4d] after:content-[""]'>
+          <div className='w-3/12  relative after:w-[1px] after:h-[380px] after:absolute after: top-[12%] 
+          after:right-[50px] after:bg-[#9a9a9a4d] after:content-[""]'>
             <ul className="flex flex-col gap-y-4">
               <CategoryList text="Woman’s Fashion" type="true" />
               <CategoryList
@@ -29,12 +36,12 @@ const Banner = () => {
                 type="true"
               />
               <CategoryList text="Electronics" />
-              <CategoryList text="Home & Lifestyle" />
+              <CategoryList text="Home & Lifestyle"/>
               <CategoryList text="Medicine" />
-              <CategoryList text="Sports & Outdoor" />
+              <CategoryList text="Sports & Outdoor"/>
               <CategoryList text="Baby’s & Toys" />
-              <CategoryList text="Groceries & Pets" />
-              <CategoryList text="Health & Beauty" />
+              <CategoryList text="Groceries & Pets"/>
+              <CategoryList text="Health & Beauty"/>
             </ul>
           </div>
           <div className="w-9/12 ">
@@ -43,26 +50,13 @@ const Banner = () => {
                 <Image src={BannerImage} alt="Banner Image" />
               </div>
               <div>
-                <Image src={BannerImage} alt="Banner Image" />
+                <Image src={phones1} alt="phones1"/>
               </div>
               <div>
-                <Image src={BannerImage} alt="Banner Image" />
+                <Image src={allproduct} alt="all product"/>
               </div>
-              <div>
-                <Image src={BannerImage} alt="Banner Image" />
-              </div>
-              <div>
-                <Image src={BannerImage} alt="Banner Image" />
-              </div>
-              <div>
-                <Image src={BannerImage} alt="Banner Image" />
-              </div>
-              <div>
-                <Image src={BannerImage} alt="Banner Image" />
-              </div>
-              <div>
-                <Image src={BannerImage} alt="Banner Image" />
-              </div>
+              
+              
             </Slider>
           </div>
         </Flex>

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+<<<<<<< HEAD
    --container-container:1170px;
    --spacing-p77: 77px; 
    --text-33: 33px;
@@ -9,6 +10,19 @@
    --color-primary:#FAFAFA;
    --color-secondary:#DB4444;
   
+=======
+  --container-container:1170px;
+  --spacing-p77: 77px; 
+  --spacing-w249: 249px; 
+  --text-33: 33px;
+  --font-pop: "Poppins", sans-serif; 
+  --font-inter: "Inter", sans-serif;
+  --color-primary:#FAFAFA;
+  --color-primary1:#F5F5F5;
+  --color-secondary:#DB4444;
+  --color-opblack:#00000080;
+  --color-opblack4 :#00000066;
+>>>>>>> 2f7ed1c (Added Contact and Checkout parts)
 }
 /* .one{
   display: grid;
