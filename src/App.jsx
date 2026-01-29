@@ -12,6 +12,7 @@ import RootLayout from './components/RootLayout';
 import Signup from './pages/Signup';
 import Cart from './pages/Cart';
 import Error from './pages/Error';
+import ProductDetails from './pages/ProductDetails';
 
 
 const router = createBrowserRouter(
@@ -23,7 +24,8 @@ const router = createBrowserRouter(
        <Route path="/login" element={<Login />} ></Route>
        <Route path="/signup" element={<Signup />} ></Route>
        <Route path="/cart" element={<Cart />} ></Route>
-       <Route path="/*" element={<Error />} ></Route>
+       <Route path="/*" element={<Error />} ></Route> 
+       <Route path="/ProductDetails" element={<ProductDetails />} ></Route>
     
     </Route>
     

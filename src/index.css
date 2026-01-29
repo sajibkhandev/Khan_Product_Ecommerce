@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --container-container:1170px;
-  --spacing-p77: 77px; 
-  --spacing-w249: 249px; 
-  --text-33: 33px;
-  --font-pop: "Poppins", sans-serif; 
-  --color-primary:#FAFAFA;
-  --color-secondary:#DB4444;
+   --container-container:1170px;
+   --spacing-p77: 77px; 
+   --text-33: 33px;
+   --font-pop: "Poppins", sans-serif; 
+   --font-int: "Inter", sans-serif;
+   --color-primary:#FAFAFA;
+   --color-secondary:#DB4444;
+  
 }
 /* .one{
   display: grid;
