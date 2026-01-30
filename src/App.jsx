@@ -33,7 +33,7 @@ const router = createBrowserRouter(
        <Route path="/*" element={<Error />} ></Route> 
        <Route path="/ProductDetails" element={<ProductDetails />} ></Route>
     
-=======
+
        <Route path="/*" element={<Error />} ></Route>
        <Route path="/contact" element={<Contact/>} ></Route>
        <Route path="/checkout" element={<Checkout/>} ></Route>
