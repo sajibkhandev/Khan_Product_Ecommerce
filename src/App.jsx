@@ -12,12 +12,12 @@ import RootLayout from './components/RootLayout';
 import Signup from './pages/Signup';
 import Cart from './pages/Cart';
 import Error from './pages/Error';
-<<<<<<< HEAD
+
 import ProductDetails from './pages/ProductDetails';
-=======
+
 import Contact from './pages/Contact';
 import Checkout from './pages/Checkout';
->>>>>>> 2f7ed1c (Added Contact and Checkout parts)
+
 
 
 const router = createBrowserRouter(
@@ -28,7 +28,7 @@ const router = createBrowserRouter(
        <Route path="/products" element={<Products />} ></Route>
        <Route path="/login" element={<Login />} ></Route>
        <Route path="/signup" element={<Signup />} ></Route>
-<<<<<<< HEAD
+
        <Route path="/cart" element={<Cart />} ></Route>
        <Route path="/*" element={<Error />} ></Route> 
        <Route path="/ProductDetails" element={<ProductDetails />} ></Route>
@@ -37,7 +37,7 @@ const router = createBrowserRouter(
        <Route path="/*" element={<Error />} ></Route>
        <Route path="/contact" element={<Contact/>} ></Route>
        <Route path="/checkout" element={<Checkout/>} ></Route>
->>>>>>> 2f7ed1c (Added Contact and Checkout parts)
+
     </Route>
     
    </>

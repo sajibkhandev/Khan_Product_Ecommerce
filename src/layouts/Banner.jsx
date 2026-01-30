@@ -2,12 +2,8 @@ import React from "react";
 import Container from "../components/Container";
 import Image from "../components/Image";
 import Flex from "../components/Flex";
-import Product1 from "../assets/product1.png";
 import BannerImage from "../assets/banner.jpg";
-import phones1 from "../assets/phones1.jpg"
-import allproduct from "../assets/allproduct.png"
 import CategoryList from "../components/CategoryList";
-
 import Slider from "react-slick";
 import { ImOpt } from "react-icons/im";
 
@@ -50,10 +46,10 @@ const Banner = () => {
                 <Image src={BannerImage} alt="Banner Image" />
               </div>
               <div>
-                <Image src={phones1} alt="phones1"/>
+                <Image src={BannerImage} alt="BannerImage"/>
               </div>
               <div>
-                <Image src={allproduct} alt="all product"/>
+                <Image src={BannerImage} alt="BannerImage"/>
               </div>
               
               
