@@ -6,12 +6,18 @@ import login from '../assets/login.png'
 import Button from '../components/Button'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import { useNavigate } from 'react-router-dom'
+
 
 
 const Login = () => {
+
   const auth = getAuth();
   let [email,setEmail]=useState()
   let [password,setPassword]=useState()
+
+  let navigate=useNavigate()
 
 
 
@@ -19,6 +25,10 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     toast.success("Login Successfully")
+   setTimeout(()=>{
+     navigate("/")
+
+   },2000)
     
   })
   .catch((error) => {
@@ -45,6 +55,10 @@ const Login = () => {
             <input onChange={(e)=>setEmail(e.target.value)} type="text" placeholder='Email or Phone Number' className='w-full border-0 border-b border-black py-2 placeholder:text-[18px] font-pop font-normal focus:outline-none'/>
           </div>
           <input onChange={(e)=>setPassword(e.target.value)} type="password" placeholder='Password' className='w-full border-0 border-b border-black py-2 placeholder:text-[18px] font-pop font-normal focus:outline-none' />
+          
+
+ 
+
           <Flex className='items-center pt-10'>
              <div onClick={handleLogin}>
               <Button text="Log In"/>
