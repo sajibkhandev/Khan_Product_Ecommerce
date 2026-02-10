@@ -10,7 +10,7 @@ import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWith
 import { ToastContainer, toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom'
 import { FiEye, FiEyeOff } from 'react-icons/fi'
-import { log } from 'firebase/firestore/pipelines'
+import { FcGoogle } from 'react-icons/fc'
 
 const Signup = () => {
   let patten = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
@@ -30,7 +30,7 @@ const Signup = () => {
   let [emailerror, setEmailError] = useState("")
   let [passworderror, setPasswordError] = useState("")
 
-  let navigate=useNavigate()
+  let navigate = useNavigate()
   let handleEye = () => {
     setEye(!eye)
 
@@ -48,7 +48,7 @@ const Signup = () => {
     setPasswordError("")
   }
 
-// this function for sign in
+  // this function for sign in
   let handleSignUp = () => {
 
     if (!name) {
@@ -110,21 +110,21 @@ const Signup = () => {
 
 
   }
-// this function for google
+  // this function for google
 
   let handleGoogle = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
         navigate("/")
-       
+
 
 
       }).catch((error) => {
         const errorCode = error.code;
-        if(errorCode){
+        if (errorCode) {
           console.log("some error here");
-          
+
         }
 
       });
@@ -158,28 +158,33 @@ const Signup = () => {
                 }
               </div>
               <div className='pb-10 '>
-                <input onChange={handleEmail} type="text" placeholder='Email or Phone Number' className='w-full border-0 border-b border-black py-2 placeholder:text-[18px] font-pop font-normal ' />
+                <input onChange={handleEmail} type="text" placeholder='Email or Phone Number' className='w-full border-0 border-b border-black py-2 placeholder:text-[18px] font-pop font-normal focus:outline-none ' />
                 {
                   emailerror && <p className='bg-red-500 text-white py-1 px-2 rounded-md mt-2 '>{emailerror}</p>
                 }
 
               </div>
-              <div className='relative'>
-                <input onChange={handlePassword} type={eye ?
-                  "text" : "password"} placeholder='Password' className='w-full border-0 border-b border-black py-2 placeholder:text-[18px] font-pop font-normal focus:outline-none' />
-                <div onClick={handleEye} className='absolute top-1/2 -translate-y-1/2 right-0'>
-
-                  {
-                    eye ?
-                      <FiEye />
-                      :
-                      <FiEyeOff />
-                  }
-
+              <div className='pb-10'>
+                <div className='relative'>
+                  <input
+                    onChange={handlePassword}
+                    type={eye ? "text" : "password"}
+                    placeholder='Password'
+                    className='w-full border-0 border-b border-black py-2 placeholder:text-[18px] font-pop font-normal focus:outline-none'
+                  />
+                  <div
+                    onClick={handleEye}
+                    className='absolute top-1/2 -translate-y-1/2 right-0 cursor-pointer'
+                  >
+                    {eye ? <FiEye /> : <FiEyeOff />}
+                  </div>
                 </div>
-                {
-                  passworderror && <p className='bg-red-500 text-white py-1 px-2 rounded-md mt-2 '>{passworderror}</p>
-                }
+
+                {passworderror && (
+                  <p className='bg-red-500 text-white py-1 px-2 rounded-md mt-2'>
+                    {passworderror}
+                  </p>
+                )}
               </div>
 
               <div onClick={handleSignUp} className='pt-10 pb-4'>
@@ -187,9 +192,9 @@ const Signup = () => {
               </div>
 
               <div onClick={handleGoogle}>
-                <Flex className='w-[full] border border-[#CCCCCC] justify-center py-4 px-21.5'>
-                  <Image src={googleicon} alt="google" />
-                  <p className='text-base font-normal font-pop pl-4'>Sign up with Google</p>
+                <Flex className='relative w-[full] border border-[#CCCCCC] justify-center py-[16px] px-[86px]'>
+                  <FcGoogle className='absolute text-xl top-[19px] left-[90px]' />
+                  <p className='text-base font-normal font-pop pl-[16px]'>Sign up with Google</p>
                 </Flex>
               </div>
               <Flex className='justify-center pt-8'>
