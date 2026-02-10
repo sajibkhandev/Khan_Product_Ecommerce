@@ -5,7 +5,7 @@ import Image from '../components/Image'
 import login from '../assets/login.png'
 import Button from '../components/Button'
 import googleicon from '../assets/googleicon.png'
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, sendEmailVerification } from "firebase/auth";
 
 import { ToastContainer, toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom'
@@ -91,7 +91,12 @@ const Signup = () => {
 
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          toast.success("Registration Successfully");
+
+
+          sendEmailVerification(auth.currentUser)
+            toast.success(" Please Cleck Your email");
+             
+          
 
 
         })
