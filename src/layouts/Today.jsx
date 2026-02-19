@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../components/Container";
 import SubHeading from "../components/SubHeading";
 import Heading from "../components/Heading";
@@ -15,15 +15,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import NextArrow from "../components/NextArrow";
 import PrevArrow from "../components/PrevArrow";
-import Apidata from "../data";
+import { log } from "firebase/firestore/lite/pipelines";
+
 
 const Today = () => {
   let [show, setShow] = useState(0)
-
-  // console.log(Apidata);
-
-
-
+  let [Apidata, setApiData] = useState([])
 
 
 
@@ -37,6 +34,17 @@ const Today = () => {
     prevArrow: <PrevArrow />
   };
 
+
+  useEffect(() => {
+    fetch('https://dummyjson.com/products')
+      .then((res) => res.json())
+      .then((data) => setApiData(data.products))
+
+  }, [])
+
+
+
+
   return (
     <section className="mb-20 ">
       <Container>
@@ -44,78 +52,36 @@ const Today = () => {
           <SubHeading title="Today’s" />
           <Heading className="pt-6 pb-8" text="Flash Sales" />
           <Slider {...settings}>
-            <div>
-              <Card
-                image={Product1}
-                title="Product One"
-                saleprice="300"
-                regularprice="200"
-                badge="new"
-              />
-            </div>
-            <div>
-              <Card
-                image={Product2}
-                title="Product One"
-                saleprice="300"
-                regularprice="200"
-                badge="new"
-              />
-            </div>
-            <div>
-              <Card
-                image={Product3}
-                title="Product One"
-                saleprice="300"
-                regularprice="200"
-                badge="new"
-              />
-            </div>
-            <div>
-              <Card
-                image={Product4}
-                title="Product One"
-                saleprice="300"
-                regularprice="200"
-                badge="new"
-              />
-            </div>
-            <div>
-              <Card
-                image={Product5}
-                title="Product One"
-                saleprice="300"
-                regularprice="200"
-                badge="new"
-              />
-            </div>
-            <div>
-              <Card
-                image={Product6}
-                title="Product One"
-                saleprice="300"
-                regularprice="200"
-                badge="new"
-              />
-            </div>
+            {
+              Apidata.map(item => (
+                <div>
+                  <Card
+                    image={item.thumbnail}
+                    title={item.title}
+                    saleprice="300"
+                    regularprice="200"
+                    badge="new"
+                  />
+                </div>
+
+
+              ))
+            }
+
+
 
           </Slider>
-
-
-
-
-
 
           <div className="flex flex-wrap gap-4">
             {
               Apidata.slice(0, show).map(item => (
                 <div>
                   <Card
-                    image={item.image}
-                    title={item.name}
+                    image={item.thumbnail}
+                    title={item.title}
                     saleprice={item.saleprice}
                     regularprice={item.regularprice}
-                    badge={item.badge}
+                    badge={"new"}
                   />
                 </div>
 
@@ -130,6 +96,14 @@ const Today = () => {
             </div>
               : <p className="text-center text-3xl text-red-500">No More Product</p>
           }
+
+
+
+
+
+
+
+
         </div>
       </Container>
     </section>

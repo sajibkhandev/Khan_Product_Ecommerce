@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import Container from '../components/Container'
 import SubHeading from '../components/SubHeading'
 import Heading from '../components/Heading'
@@ -6,12 +6,35 @@ import Flex from '../components/Flex'
 import ProductOne from "../assets/product1.png";
 import Card from '../components/Card'
 import Button from '../components/Button'
-import ApiData from '../data'
-console.log(ApiData.length);
+import { log } from 'firebase/firestore/lite/pipelines'
+
+
 
 
 const ExploreProduct = () => {
     let [show,setShow]=useState(4)
+    let [Apidata,setApiData]=useState([])
+
+
+    useEffect(()=>{
+      fetch("https://dummyjson.com/products")
+      .then((res)=>res.json())
+      .then((data)=>setApiData(data.products))
+      
+
+    },[])
+
+
+
+    Apidata.map(item=>{
+      console.log(item.thumbnail);
+      
+    })
+
+
+
+
+
     
    
   return (
@@ -22,9 +45,9 @@ const ExploreProduct = () => {
                
                 <Flex className='justify-between flex-wrap gap-y-10'>
                     {
-                        ApiData.map((item,index)=>(
+                        Apidata.map((item,index)=>(
                             index < show &&
-                            <Card image={item.image} title={item.name} saleprice={item.saleprice} regularprice={item.regularprice} badge={item.badge}
+                            <Card image={item.thumbnail} title={item.title} saleprice={item.saleprice} regularprice={item.regularprice} badge={"new"}
                         />
                         
                             
@@ -34,7 +57,7 @@ const ExploreProduct = () => {
                    
                 </Flex>
                 {
-                    show<ApiData.length&& <div onClick={()=>setShow(ApiData.length)} className='text-center pt-[60px]'>
+                    show<Apidata.length&& <div onClick={()=>setShow(Apidata.length)} className='text-center pt-[60px]'>
                     <Button text="View All Products"/>
                 </div>
                 }
