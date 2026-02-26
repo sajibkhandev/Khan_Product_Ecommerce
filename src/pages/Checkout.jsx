@@ -11,23 +11,14 @@ import { useState } from "react";
 import Roundeicon from "../components/Roundicon"
 import Payment from '../assets/payment.png'
 import Button from '../components/Button'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 const Checkout = () => {
+  let data=useSelector((state)=>state.breadcrumb.previousValue)
   return (
     <section>
       <Container>
-        <ul>
-          <div className='w-[455px] flex justify-between font-pop font-normal text-sm text-opblack p-0 mt-[80px] cursor-pointer'>
-            <li>Account</li>
-            <li>/</li>
-            <li>My Account</li>
-            <li>/</li>
-            <li>Product</li>
-            <li>/</li>
-            <li>View Cart</li>
-            <li>/</li>
-            <li className='text-black'>CheckOut</li>
-          </div>
-        </ul>
+         <p className="pt-6"> <Link to={data=="Home"? "/":`/${data}`}>{data}</Link> > Checkout</p>
 
         <h1 className='text-black font-inter text-4xl mt-[80px] mb-[80px]'>Billing Details</h1>
         <Flex className='gap-[173px]'>

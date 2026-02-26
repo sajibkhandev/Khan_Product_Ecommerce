@@ -9,12 +9,22 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom'
 import { TbUser } from 'react-icons/tb'
+import { useDispatch } from 'react-redux'
+import { addbreadcrumb } from '../slices/breadCrumbSlice'
 
 
 
 
 const Navbar = () => {
   let [dropdown, setDropdown] = useState(false)
+  let dispatch=useDispatch()
+
+  let handleBreadCrumb=(name)=>{
+    dispatch(addbreadcrumb(name))
+  
+    
+  }
+
  
   return (
     <nav className='pt-10 pb-4 border-[#9a9a9a4d] border'>
@@ -25,11 +35,11 @@ const Navbar = () => {
           </div>
           <div className='w-5/12 '>
             <ul className='flex gap-x-12 cursor-pointer'>
-              <Link to='/'><ListItem text="Home" /></Link>
-              <Link to='/products'> <ListItem text="Products" /></Link>
-              <Link to='/login'><ListItem text="LogIn" /></Link>
-              <Link to='/signup'><ListItem text="SignUp" /></Link>
-              <Link to='/about'><ListItem text="About" /></Link>
+              <Link onClick={()=>handleBreadCrumb("Home")} to='/'><ListItem text="Home" /></Link>
+              <Link onClick={()=>handleBreadCrumb("Cart")} to='/cart'> <ListItem text="Cart" /></Link>
+              <Link onClick={()=>handleBreadCrumb("Checkout")} to='/checkout'><ListItem text="Checkout" /></Link>
+              <Link onClick={()=>handleBreadCrumb("Contact")} to='/contact'><ListItem text="Contact" /></Link>
+              <Link onClick={()=>handleBreadCrumb("About")} to='/about'><ListItem text="About" /></Link>
 
 
             </ul>

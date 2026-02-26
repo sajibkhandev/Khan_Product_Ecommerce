@@ -6,22 +6,19 @@ import ProductPrice from "../components/ProductPrice";
 import Monitor from "../assets/monitor.png";
 import Gamepad from "../assets/gamepad-small.png";
 import Button from "../components/Button";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
+  let data=useSelector((state)=>state.breadcrumb.previousValue)
+ 
+  
+  
+  
   return (
     <Container>
       <section className="font-pop">
-        <ul className="flex gap-3 pt-16 text-sm text-black font-normal">
-          <Link to="/">
-            <li className="opacity-50">Home</li>
-          </Link>
-          <Link>
-            <li className="opacity-50">/</li>
-          </Link>
-          <Link to="/cart">
-            <li>Cart</li>
-          </Link>
-        </ul>
+        <p className="pt-6"> <Link to={data=="Home"? "/":`/${data}`}>{data}</Link> > cart</p>
+        
         <div className="lg:mt-20 lg:mb-35">
           <div className="flex justify-between py-6 px-10 shadow-[0_1px_13px_rgba(0,0,0,0.05)] mb-10">
             <p>Product</p>

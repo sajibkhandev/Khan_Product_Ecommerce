@@ -26,11 +26,7 @@ const ExploreProduct = () => {
 
 
 
-    Apidata.map(item=>{
-      console.log(item.thumbnail);
-      
-    })
-
+  
 
 
 
