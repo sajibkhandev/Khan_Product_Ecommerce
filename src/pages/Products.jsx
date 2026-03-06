@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import CategoryList from '../components/CategoryList'
 import Card from '../components/Card'
 import ProductImage from '../assets/product3.png'
+import Pagination from '../components/Pagination'
 
 
 const Products = () => {
@@ -56,73 +57,7 @@ const Products = () => {
           </div>
           <div className='w-9/12 '>
 
-          <Flex className='flex-wrap gap-5'>
-             <Card
-                    image={ProductImage}
-                    title={"product one"}
-                    saleprice="300"
-                    regularprice="200"
-                    badge="new"
-                  />
-           <Card
-                    image={ProductImage}
-                    title={"product one"}
-                    saleprice="300"
-                    regularprice="200"
-                    badge="new"
-                  />
-           <Card
-                    image={ProductImage}
-                    title={"product one"}
-                    saleprice="300"
-                    regularprice="200"
-                    badge="new"
-                  />
-           <Card
-                    image={ProductImage}
-                    title={"product one"}
-                    saleprice="300"
-                    regularprice="200"
-                    badge="new"
-                  />
-           <Card
-                    image={ProductImage}
-                    title={"product one"}
-                    saleprice="300"
-                    regularprice="200"
-                    badge="new"
-                  />
-           <Card
-                    image={ProductImage}
-                    title={"product one"}
-                    saleprice="300"
-                    regularprice="200"
-                    badge="new"
-                  />
-           <Card
-                    image={ProductImage}
-                    title={"product one"}
-                    saleprice="300"
-                    regularprice="200"
-                    badge="new"
-                  />
-           <Card
-                    image={ProductImage}
-                    title={"product one"}
-                    saleprice="300"
-                    regularprice="200"
-                    badge="new"
-                  />
-           <Card
-                    image={ProductImage}
-                    title={"product one"}
-                    saleprice="300"
-                    regularprice="200"
-                    badge="new"
-                  />
-        
-          </Flex>
-          
+           <Pagination itemsPerPage={9} />
           
           
           </div>
