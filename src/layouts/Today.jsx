@@ -61,6 +61,7 @@ const Today = () => {
                     saleprice="300"
                     regularprice="200"
                     badge="new"
+                    typeforbadge={false}
                   />
                 </div>
 
@@ -82,7 +83,9 @@ const Today = () => {
                     saleprice={item.saleprice}
                     regularprice={item.regularprice}
                     badge={"new"}
+                    typeforbadge={false}
                   />
+                
                 </div>
 
               ))

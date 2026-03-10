@@ -30,8 +30,6 @@ function Pagination({ itemsPerPage }) {
 
   let [allData, setAllData] = useState([])
 
-
-
   useEffect(() => {
 
     async function mydata() {
@@ -58,16 +56,23 @@ function Pagination({ itemsPerPage }) {
 
   return (
     <>
-      <Items currentItems={currentItems} />
-      <ReactPaginate
-        breakLabel="..."
+      <Items  currentItems={currentItems} />
+      <div className="flex justify-between items-end">
+        <ReactPaginate
+        breakLabel=""
         nextLabel=""
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
         previousLabel=""
         renderOnZeroPageCount={null}
+        containerClassName="flex mt-10 "
+        pageClassName="bg-black w-[55px] h-[30px] text-white inline-block mr-5 "
+        pageLinkClassName="flex items-center justify-center h-full"
       />
+      <h3>{itemOffset+1} - {endOffset} total: {allData.length}</h3>
+      </div>
+      
     </>
   );
 }
