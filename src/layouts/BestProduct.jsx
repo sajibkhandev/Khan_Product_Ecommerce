@@ -35,7 +35,7 @@ const BestProduct = () => {
                 <Flex className='justify-between flex-wrap'>
                     {
                         Apidata.slice(0,4).map(item=>(
-                              <Card image={item.thumbnail} title="HAVIT HV-G92 Gamepad" saleprice="120" regularprice="160" badge={"10%"} typeforbadge={true}
+                              <Card id={item.id} image={item.thumbnail} title="HAVIT HV-G92 Gamepad" saleprice="120" regularprice="160" badge={"10%"} typeforbadge={true}
                     />
 
                         ))

@@ -5,16 +5,18 @@ import Flex from '../components/Flex'
 import { FaRegHeart } from "react-icons/fa";
 import { LuEye } from "react-icons/lu";
 import { FaStar } from "react-icons/fa";
+import { Link} from 'react-router-dom';
 
 
 
 
 
-const Card = ({image,title,saleprice,regularprice,badge,className,typeforbadge}) => {
+const Card = ({id,image,title,saleprice,regularprice,badge,className,typeforbadge}) => {
   console.log(typeforbadge);
   
   return (
     <div className={`w-[270px] group ${className}`}>
+       <Link to={`/productdetails/${id}`}>
         <Flex className='relative overflow-hidden w-full h-[250px] justify-center items-center bg-[#F5F5F5] rounded-[4px]'>
             <Image src={image} alt="Product1"/>
             {
@@ -40,6 +42,7 @@ const Card = ({image,title,saleprice,regularprice,badge,className,typeforbadge})
         <p className='text-[#00000080] text-xs font-pop font-normal'>(88)</p>
         </Flex>
         </div>
+       </Link>
 
     </div>
   )

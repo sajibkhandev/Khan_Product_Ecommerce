@@ -43,7 +43,7 @@ const ExploreProduct = () => {
                     {
                         Apidata.map((item,index)=>(
                             index < show &&
-                            <Card image={item.thumbnail} title={item.title} saleprice={item.saleprice} regularprice={item.regularprice} badge={"new"}
+                            <Card id={item.id} image={item.thumbnail} title={item.title} saleprice={item.saleprice} regularprice={item.regularprice} badge={"new"}
                         />
                         
                             

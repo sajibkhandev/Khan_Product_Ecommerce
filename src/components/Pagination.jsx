@@ -14,6 +14,7 @@ function Items({ currentItems }) {
       {currentItems &&
         currentItems.map((item) => (
           <Card
+           id={item.id}
             image={item.thumbnail}
             title={item.title}
             saleprice="300"
