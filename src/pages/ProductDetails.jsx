@@ -17,15 +17,19 @@ import productsuggestone from "../assets/productsuggestone.png";
 import productsuggesttwo from "../assets/productsuggesttwo.png";
 import productsuggestthree from "../assets/productsuggestthree.png";
 import { useParams } from 'react-router-dom';
+import Gif from '../assets/gif.gif'
 
 const ProductDetails = () => {
   let [singleproduct, setSingleProduct] = useState([])
   let params = useParams()
   // console.log(params.id);
   useEffect(() => {
+   
     fetch(`https://dummyjson.com/products/${params.id}`)
       .then((res) => res.json())
-      .then((data) => setSingleProduct([data]))
+      .then((data) =>
+        setSingleProduct([data])
+    )
 
   }, [])
 
@@ -39,7 +43,8 @@ const ProductDetails = () => {
 
 
   return (
-    <section>
+   
+      <section>
       <Container>
         { singleproduct && 
           singleproduct.map(item => (
@@ -217,6 +222,9 @@ const ProductDetails = () => {
 
       </Container>
     </section>
+  
+   
+   
   )
 }
 

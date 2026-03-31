@@ -7,18 +7,16 @@ import { LuEye } from "react-icons/lu";
 import { FaStar } from "react-icons/fa";
 import { Link} from 'react-router-dom';
 
-
-
-
-
 const Card = ({id,image,title,saleprice,regularprice,badge,className,typeforbadge}) => {
   console.log(typeforbadge);
   
   return (
     <div className={`w-[270px] group ${className}`}>
-       <Link to={`/productdetails/${id}`}>
+       
         <Flex className='relative overflow-hidden w-full h-[250px] justify-center items-center bg-[#F5F5F5] rounded-[4px]'>
+          <Link to={`/productdetails/${id}`}>
             <Image src={image} alt="Product1"/>
+          </Link>
             {
               typeforbadge && <p className=' absolute top-3 left-4 bg-[#DB4444] py-1 px-3 rounded-[4px] text-xs text-white font-pop font-normal'>{badge}</p>
             }
@@ -28,7 +26,12 @@ const Card = ({id,image,title,saleprice,regularprice,badge,className,typeforbadg
 
         </Flex>
         <div>
-        <h4 className='text-base text-black font-medium font-pop pt-4 pb-2'>{title}</h4>
+
+          <Link to={`/productdetails/${id}`}>
+           <h4 className='text-base text-black font-medium font-pop pt-4 pb-2'>{title}</h4>
+          
+          </Link>
+       
         <p className='text-base text-[#DB4444] font-medium font-pop'>${saleprice} <span className='text-[#00000080]'><del className='text-[#00000080]'> ${regularprice}</del></span></p>
         <Flex className='items-center pt-2 gap-x-2'>
             <ul className='flex gap-x-1  !p-0'>
@@ -42,7 +45,7 @@ const Card = ({id,image,title,saleprice,regularprice,badge,className,typeforbadg
         <p className='text-[#00000080] text-xs font-pop font-normal'>(88)</p>
         </Flex>
         </div>
-       </Link>
+       
 
     </div>
   )

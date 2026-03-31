@@ -11,12 +11,14 @@ import { Link } from 'react-router-dom'
 import { TbUser } from 'react-icons/tb'
 import { useDispatch } from 'react-redux'
 import { addbreadcrumb } from '../slices/breadCrumbSlice'
+import ProductOne from '../assets/product1.png'
 
 
 
 
 const Navbar = () => {
   let [dropdown, setDropdown] = useState(false)
+  let [cartdropdown, setCartDropdown] = useState(false)
   let dispatch=useDispatch()
 
   let handleBreadCrumb=(name)=>{
@@ -51,7 +53,133 @@ const Navbar = () => {
                 <IoSearchOutline className='absolute top-[9px] right-2 text-base' />
               </div>
               <IoIosHeartEmpty className='text-xl' />
-              <Link to='/cart'><IoCartOutline className='text-xl' /></Link>
+
+
+             <IoCartOutline onClick={()=>setCartDropdown(!cartdropdown)} className='text-xl' />
+             {
+              cartdropdown &&
+             <div className='absolute top-12 left-0 z-50 w-[400px] h-[80vh] overflow-y-scroll bg-primary1'>
+              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-sm font-semibold font-pop'>
+                <li>Image:</li>
+                <li>Name:</li>
+                <li>Quantity:</li>
+                <li>SubTotal:</li>
+              </ul>
+              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
+                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
+                <li>Product One</li>
+                <li className='border border-black py-1 px-3'>
+                  <button className='mr-2'>-</button>
+                  <button>1</button>
+                  <button className='ml-2'>+</button>
+                  </li>
+                <li>60$</li>
+              </ul>
+              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
+                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
+                <li>Product One</li>
+                <li className='border border-black py-1 px-3'>
+                  <button className='mr-2'>-</button>
+                  <button>1</button>
+                  <button className='ml-2'>+</button>
+                  </li>
+                <li>60$</li>
+              </ul>
+              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
+                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
+                <li>Product One</li>
+                <li className='border border-black py-1 px-3'>
+                  <button className='mr-2'>-</button>
+                  <button>1</button>
+                  <button className='ml-2'>+</button>
+                  </li>
+                <li>60$</li>
+              </ul>
+              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
+                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
+                <li>Product One</li>
+                <li className='border border-black py-1 px-3'>
+                  <button className='mr-2'>-</button>
+                  <button>1</button>
+                  <button className='ml-2'>+</button>
+                  </li>
+                <li>60$</li>
+              </ul>
+              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
+                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
+                <li>Product One</li>
+                <li className='border border-black py-1 px-3'>
+                  <button className='mr-2'>-</button>
+                  <button>1</button>
+                  <button className='ml-2'>+</button>
+                  </li>
+                <li>60$</li>
+              </ul>
+              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
+                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
+                <li>Product One</li>
+                <li className='border border-black py-1 px-3'>
+                  <button className='mr-2'>-</button>
+                  <button>1</button>
+                  <button className='ml-2'>+</button>
+                  </li>
+                <li>60$</li>
+              </ul>
+            
+              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
+                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
+                <li>Product One</li>
+                <li className='border border-black py-1 px-3'>
+                  <button className='mr-2'>-</button>
+                  <button>1</button>
+                  <button className='ml-2'>+</button>
+                  </li>
+                <li>60$</li>
+              </ul>
+            
+              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
+                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
+                <li>Product One</li>
+                <li className='border border-black py-1 px-3'>
+                  <button className='mr-2'>-</button>
+                  <button>1</button>
+                  <button className='ml-2'>+</button>
+                  </li>
+                <li>60$</li>
+              </ul>
+            
+              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
+                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
+                <li>Product One</li>
+                <li className='border border-black py-1 px-3'>
+                  <button className='mr-2'>-</button>
+                  <button>1</button>
+                  <button className='ml-2'>+</button>
+                  </li>
+                <li>60$</li>
+              </ul>
+            
+              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
+                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
+                <li>Product One</li>
+                <li className='border border-black py-1 px-3'>
+                  <button className='mr-2'>-</button>
+                  <button>1</button>
+                  <button className='ml-2'>+</button>
+                  </li>
+                <li>60$</li>
+              </ul>
+            
+             </div>
+             }
+
+
+
+
+
+
+
+
               <div onClick={()=>setDropdown(!dropdown)} className='w-[25px] h-[25px] bg-[#DB4444] rounded-full flex justify-center items-center'>
                 <TbUser className='text-white' />
               </div>
@@ -59,11 +187,8 @@ const Navbar = () => {
                 dropdown &&
                 <div className='z-100 w-[200px] py-[20px] absolute top-full right-5 bg-red-500'>
                   <ul>
-                    <li>home</li>
-                    <li>home</li>
-                    <li>home</li>
-                    <li>home</li>
-                    <li>home</li>
+                    <li>login</li>
+                    <li>registration</li>
                   </ul>
                 </div>
               }
