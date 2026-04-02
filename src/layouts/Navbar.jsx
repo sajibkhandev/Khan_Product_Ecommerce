@@ -9,9 +9,11 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom'
 import { TbUser } from 'react-icons/tb'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addbreadcrumb } from '../slices/breadCrumbSlice'
 import ProductOne from '../assets/product1.png'
+import { decrementaddtocart, incrementaddtocart } from '../slices/addToCartSlice'
+
 
 
 
@@ -19,15 +21,28 @@ import ProductOne from '../assets/product1.png'
 const Navbar = () => {
   let [dropdown, setDropdown] = useState(false)
   let [cartdropdown, setCartDropdown] = useState(false)
-  let dispatch=useDispatch()
+  let data = useSelector(state => state.cartitem.cartvalue)
 
-  let handleBreadCrumb=(name)=>{
+
+
+
+
+  let dispatch = useDispatch()
+
+  let handleBreadCrumb = (name) => {
     dispatch(addbreadcrumb(name))
-  
+
+
+  }
+  let handleIncrement=(item)=>{
+    dispatch(incrementaddtocart(item))
     
   }
+  let handleDecrement=(item)=>{
+    dispatch(decrementaddtocart(item))
+  }
 
- 
+
   return (
     <nav className='pt-10 pb-4 border-[#9a9a9a4d] border'>
       <Container>
@@ -37,11 +52,11 @@ const Navbar = () => {
           </div>
           <div className='w-5/12 '>
             <ul className='flex gap-x-12 cursor-pointer'>
-              <Link onClick={()=>handleBreadCrumb("Home")} to='/'><ListItem text="Home" /></Link>
-              <Link onClick={()=>handleBreadCrumb("Cart")} to='/cart'> <ListItem text="Cart" /></Link>
-              <Link onClick={()=>handleBreadCrumb("Checkout")} to='/checkout'><ListItem text="Checkout" /></Link>
-              <Link onClick={()=>handleBreadCrumb("Contact")} to='/contact'><ListItem text="Contact" /></Link>
-              <Link onClick={()=>handleBreadCrumb("About")} to='/about'><ListItem text="About" /></Link>
+              <Link onClick={() => handleBreadCrumb("Home")} to='/'><ListItem text="Home" /></Link>
+              <Link onClick={() => handleBreadCrumb("Cart")} to='/cart'> <ListItem text="Cart" /></Link>
+              <Link onClick={() => handleBreadCrumb("Checkout")} to='/checkout'><ListItem text="Checkout" /></Link>
+              <Link onClick={() => handleBreadCrumb("Contact")} to='/contact'><ListItem text="Contact" /></Link>
+              <Link onClick={() => handleBreadCrumb("About")} to='/about'><ListItem text="About" /></Link>
 
 
             </ul>
@@ -55,123 +70,35 @@ const Navbar = () => {
               <IoIosHeartEmpty className='text-xl' />
 
 
-             <IoCartOutline onClick={()=>setCartDropdown(!cartdropdown)} className='text-xl' />
-             {
-              cartdropdown &&
-             <div className='absolute top-12 left-0 z-50 w-[400px] h-[80vh] overflow-y-scroll bg-primary1'>
-              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-sm font-semibold font-pop'>
-                <li>Image:</li>
-                <li>Name:</li>
-                <li>Quantity:</li>
-                <li>SubTotal:</li>
-              </ul>
-              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
-                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
-                <li>Product One</li>
-                <li className='border border-black py-1 px-3'>
-                  <button className='mr-2'>-</button>
-                  <button>1</button>
-                  <button className='ml-2'>+</button>
-                  </li>
-                <li>60$</li>
-              </ul>
-              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
-                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
-                <li>Product One</li>
-                <li className='border border-black py-1 px-3'>
-                  <button className='mr-2'>-</button>
-                  <button>1</button>
-                  <button className='ml-2'>+</button>
-                  </li>
-                <li>60$</li>
-              </ul>
-              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
-                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
-                <li>Product One</li>
-                <li className='border border-black py-1 px-3'>
-                  <button className='mr-2'>-</button>
-                  <button>1</button>
-                  <button className='ml-2'>+</button>
-                  </li>
-                <li>60$</li>
-              </ul>
-              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
-                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
-                <li>Product One</li>
-                <li className='border border-black py-1 px-3'>
-                  <button className='mr-2'>-</button>
-                  <button>1</button>
-                  <button className='ml-2'>+</button>
-                  </li>
-                <li>60$</li>
-              </ul>
-              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
-                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
-                <li>Product One</li>
-                <li className='border border-black py-1 px-3'>
-                  <button className='mr-2'>-</button>
-                  <button>1</button>
-                  <button className='ml-2'>+</button>
-                  </li>
-                <li>60$</li>
-              </ul>
-              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
-                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
-                <li>Product One</li>
-                <li className='border border-black py-1 px-3'>
-                  <button className='mr-2'>-</button>
-                  <button>1</button>
-                  <button className='ml-2'>+</button>
-                  </li>
-                <li>60$</li>
-              </ul>
-            
-              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
-                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
-                <li>Product One</li>
-                <li className='border border-black py-1 px-3'>
-                  <button className='mr-2'>-</button>
-                  <button>1</button>
-                  <button className='ml-2'>+</button>
-                  </li>
-                <li>60$</li>
-              </ul>
-            
-              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
-                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
-                <li>Product One</li>
-                <li className='border border-black py-1 px-3'>
-                  <button className='mr-2'>-</button>
-                  <button>1</button>
-                  <button className='ml-2'>+</button>
-                  </li>
-                <li>60$</li>
-              </ul>
-            
-              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
-                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
-                <li>Product One</li>
-                <li className='border border-black py-1 px-3'>
-                  <button className='mr-2'>-</button>
-                  <button>1</button>
-                  <button className='ml-2'>+</button>
-                  </li>
-                <li>60$</li>
-              </ul>
-            
-              <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
-                <li><Image className='w-[35px] h-[35px]' src={ProductOne}/></li>
-                <li>Product One</li>
-                <li className='border border-black py-1 px-3'>
-                  <button className='mr-2'>-</button>
-                  <button>1</button>
-                  <button className='ml-2'>+</button>
-                  </li>
-                <li>60$</li>
-              </ul>
-            
-             </div>
-             }
+              <IoCartOutline onClick={() => setCartDropdown(!cartdropdown)} className='text-xl' />
+              {
+                cartdropdown &&
+                <div className='absolute top-12 left-0 z-50 w-[400px] h-[80vh] overflow-y-scroll bg-primary1'>
+                  <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-sm font-semibold font-pop'>
+                    <li>Image:</li>
+                    <li>Name:</li>
+                    <li>Quantity:</li>
+                    <li>SubTotal:</li>
+                  </ul>
+                  {
+                    data.map(item => (
+                      <ul className='border-b border-black pb-4 flex justify-between items-center my-5 mx-5 text-black text-xs font-normal font-pop'>
+                        <li><Image className='w-[35px] h-[35px]' src={item.image} /></li>
+                        <li>{item.title.substring(0,12)}...</li>
+                        <li className='border border-black py-1 px-3'>
+                          <button onClick={()=>handleDecrement(item)} className='mr-2'>-</button>
+                          <button>{item.quantity}</button>
+                          <button onClick={()=>handleIncrement(item)} className='ml-2'>+</button>
+                        </li>
+                        <li>{item.price*item.quantity}$</li>
+                      </ul>
+                    ))
+                  }
+
+
+
+                </div>
+              }
 
 
 
@@ -180,7 +107,7 @@ const Navbar = () => {
 
 
 
-              <div onClick={()=>setDropdown(!dropdown)} className='w-[25px] h-[25px] bg-[#DB4444] rounded-full flex justify-center items-center'>
+              <div onClick={() => setDropdown(!dropdown)} className='w-[25px] h-[25px] bg-[#DB4444] rounded-full flex justify-center items-center'>
                 <TbUser className='text-white' />
               </div>
               {

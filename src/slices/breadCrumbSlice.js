@@ -11,8 +11,6 @@ export const breadCrumbSlice = createSlice({
         state.previousValue=state.currentValue
         state.currentValue=action.payload
         
-        
-       
       
     },
    
