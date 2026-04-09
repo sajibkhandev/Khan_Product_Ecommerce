@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { addtocart } from '../slices/addToCartSlice';
 
 const Card = ({id,image,title,saleprice,regularprice,badge,className,typeforbadge}) => {
-  console.log(typeforbadge);
+  // console.log(typeforbadge);
 
   let dispatch=useDispatch()
 
