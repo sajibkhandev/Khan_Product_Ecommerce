@@ -21,6 +21,9 @@ const Card = ({id,image,title,saleprice,regularprice,badge,className,typeforbadg
       price:saleprice,
       quantity:1
     }))
+   
+
+
     
     
   }
