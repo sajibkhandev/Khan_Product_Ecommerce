@@ -25,6 +25,9 @@ const Navbar = () => {
   let [cartdropdown, setCartDropdown] = useState(false)
   
   let data = useSelector(state => state.cartitem.cartvalue)
+  let wishList = useSelector(state => state.wishlistSlice.value)
+ 
+  
 
 
 
@@ -53,6 +56,9 @@ const Navbar = () => {
     data.map(item=>{
       total += item.quantity*item.price
     })
+
+
+    
    
   
 
@@ -97,6 +103,7 @@ const Navbar = () => {
                 <IoSearchOutline className="absolute top-[9px] right-2 text-base" />
               </div>
               <IoIosHeartEmpty className="text-xl" />
+              <p>{wishList.length}</p>
 
               <IoCartOutline
                 onClick={() => setCartDropdown(!cartdropdown)}

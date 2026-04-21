@@ -6,6 +6,7 @@ import BannerImage from "../assets/banner.jpg";
 import CategoryList from "../components/CategoryList";
 import Slider from "react-slick";
 import { ImOpt } from "react-icons/im";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   var settings = {
@@ -22,15 +23,12 @@ const Banner = () => {
     <section className="pt-10 pb-[140px]">
       <Container>
         <Flex>
-          <div className='w-3/12  relative after:w-[1px] after:h-[380px] after:absolute after: top-[12%] 
+          <div className='w-3/12  relative after:w-[1px] after:h-[380px] after:absolute after:-top-[12%] 
           after:right-[50px] after:bg-[#9a9a9a4d] after:content-[""]'>
+           <Link to='/products'>
             <ul className="flex flex-col gap-y-4">
               <CategoryList text="Woman’s Fashion" type="true" />
-              <CategoryList
-                classNameForIcon="ml-20"
-                text="Men’s Fashion"
-                type="true"
-              />
+              <CategoryList classNameForIcon="ml-20" text="Men’s Fashion" type="true"/>
               <CategoryList text="Electronics" />
               <CategoryList text="Home & Lifestyle"/>
               <CategoryList text="Medicine" />
@@ -39,6 +37,7 @@ const Banner = () => {
               <CategoryList text="Groceries & Pets"/>
               <CategoryList text="Health & Beauty"/>
             </ul>
+           </Link>
           </div>
           <div className="w-9/12 ">
             <Slider {...settings}>

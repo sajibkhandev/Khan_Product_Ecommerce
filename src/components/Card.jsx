@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from '../components/Image'
 import Flex from '../components/Flex'
 
@@ -8,8 +8,11 @@ import { FaStar } from "react-icons/fa";
 import { Link} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addtocart } from '../slices/addToCartSlice';
+import { IoMdHeart } from 'react-icons/io';
+import { addwishlist } from '../slices/wishlistSlice';
 
 const Card = ({id,image,title,saleprice,regularprice,badge,className,typeforbadge}) => {
+  let [heart,setHeart]=useState(false)
   // console.log(typeforbadge);
 
   let dispatch=useDispatch()
@@ -27,6 +30,15 @@ const Card = ({id,image,title,saleprice,regularprice,badge,className,typeforbadg
     
     
   }
+  let handleHeart=()=>{
+    setHeart(!heart)
+
+     dispatch(addwishlist({
+      title:title,
+      
+    }))
+
+  }
   
   return (
     <div className={`w-[270px] group ${className}`}>
@@ -38,7 +50,25 @@ const Card = ({id,image,title,saleprice,regularprice,badge,className,typeforbadg
             {
               typeforbadge && <p className=' absolute top-3 left-4 bg-[#DB4444] py-1 px-3 rounded-[4px] text-xs text-white font-pop font-normal'>{badge}</p>
             }
-            <li className='absolute top-4 right-3 list-none bg-white w-[34px] h-[34px] rounded-full flex items-center justify-center'><FaRegHeart className='text-base' /></li>
+
+
+
+
+            <li onClick={handleHeart} className='absolute top-4 right-3 list-none bg-white w-[34px] h-[34px] rounded-full flex items-center justify-center'>
+              {
+                heart 
+                ?
+                <IoMdHeart className='text-red-500 text-xl'/>
+                :
+                <FaRegHeart className="text-base" />
+              }
+
+
+              </li>
+
+
+
+
             <li className='absolute top-14 right-3 list-none bg-white w-[34px] h-[34px] rounded-full flex items-center justify-center'><LuEye className='text-base' /></li>
             <div onClick={handleAddToCart} className='cursor-pointer bg-black py-2 w-full absolute -bottom-[40px] group-hover:bottom-0 duration-300 left-0 text-center rounded-b'><p className='text-base text-white font-medium font-pop '>Add To Cart</p></div>
 

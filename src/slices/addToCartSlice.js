@@ -6,7 +6,7 @@ export const addToCartSlice = createSlice({
    
     cartvalue: localStorage.getItem("addtocart")
       ? JSON.parse(localStorage.getItem("addtocart"))
-      : null,
+      : [],
   },
   reducers: {
     addtocart: (state, action) => {
