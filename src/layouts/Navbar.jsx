@@ -21,11 +21,24 @@ import { RxCross2 } from "react-icons/rx";
 
 
 const Navbar = () => {
+  let [Apidata,setApiData]=useState([])
+  let [search,setSearch]=useState([])
+
+  let [input,setInput]=useState('')
   let [dropdown, setDropdown] = useState(false)
   let [cartdropdown, setCartDropdown] = useState(false)
   
   let data = useSelector(state => state.cartitem.cartvalue)
   let wishList = useSelector(state => state.wishlistSlice.value)
+
+  let handleInput=(e)=>{
+   setInput(e.target.value);
+
+    let data=Apidata.filter(item=>item.title.toLowerCase().includes(e.target.value.toLowerCase()))
+     setSearch(data);
+    
+
+  }
  
   
 
@@ -57,11 +70,12 @@ const Navbar = () => {
       total += item.quantity*item.price
     })
 
-
+      useEffect(()=>{
+            fetch("https://dummyjson.com/products")
+            .then(res=>res.json())
+            .then(data=>setApiData(data.products))
     
-   
-  
-
+        },[])
 
 
 
@@ -95,15 +109,46 @@ const Navbar = () => {
           <div className="w-4/12 pl-10 relative">
             <Flex className="items-center justify-between">
               <div className="relative w-[243px] bg-[#F5F5F5]">
-                <input
+                <input onChange={handleInput}
+                value={input}
                   className="w-full py-1 pl-4 pr-7  placeholder:text-xs"
                   type="text"
                   placeholder="What are you looking for?"
                 />
+
+                {/* Search ber */}
+               {
+
+                 input.length > 0 &&
+                search.map(item=>(
+                   <div className="absolute z-50 top-8 left-0 border border-black w-full h-[400px] bg-primary1 rounded py-4 pl-2 pr-5">
+                  <Link onClick={()=>setInput("")} to={`/productdetails/${item.id}`}>
+                  <Flex className="justify-between items-center">
+                    <Flex className="gap-x-4 my-1.5 items-center">
+                      <Image className="w-6" src={item.thumbnail}/>
+                      <p className="text-xs">{item.title}</p>
+                    </Flex>
+                     
+                  </Flex>
+                  </Link>
+                </div>
+
+                ))
+               }
+
+
+
                 <IoSearchOutline className="absolute top-[9px] right-2 text-base" />
               </div>
-              <IoIosHeartEmpty className="text-xl" />
-              <p>{wishList.length}</p>
+              <Link to='/wishlist'>
+              <div className=" relative">
+
+              <IoIosHeartEmpty className="text-xl " />
+              <div className='flex justify-center items-center absolute top-0 -translate-y-1/2 -right-2 w-4 h-4 rounded-full bg-red-500'>
+              <p className='text-xs'>{wishList.length}</p>
+              </div>
+              </div>
+              </Link>
 
               <IoCartOutline
                 onClick={() => setCartDropdown(!cartdropdown)}
@@ -182,8 +227,9 @@ const Navbar = () => {
               {dropdown && (
                 <div className="z-100 w-[200px] py-[20px] absolute top-full right-5 bg-red-500">
                   <ul>
-                    <li>login</li>
-                    <li>registration</li>
+                    <Link to='/login'><li>login</li></Link>
+                    <Link to='/signup'><li>registration</li></Link>
+                    
                   </ul>
                 </div>
               )}

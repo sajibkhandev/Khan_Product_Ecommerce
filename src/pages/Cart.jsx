@@ -66,7 +66,7 @@ const Cart = () => {
                   <span className="justify-self-end">$1750</span>
                 </div>
                 
-                <div className="text-center"><Button className="hover:bg-red-600! text-white! border-transparent" text="Procees to checkout" /></div>
+               <Link to="/checkout"> <div className="text-center"><Button className="hover:bg-red-600! text-white! border-transparent" text="Procees to checkout" /></div></Link>
               </div>
             </div>
           </div>

@@ -16,6 +16,7 @@ import ProductDetails from './pages/ProductDetails';
 import Contact from './pages/Contact';
 import Checkout from './pages/Checkout';
 import About from './pages/About';
+import Wishlist from './pages/Wishlist';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
        <Route path="/contact" element={<Contact/>} ></Route>
        <Route path="/checkout" element={<Checkout/>} ></Route>
        <Route path="/about" element={<About/>} ></Route>
+       <Route path="/wishlist" element={<Wishlist/>} ></Route>
        <Route path="/*" element={<Error />} ></Route>
     </Route>
     
